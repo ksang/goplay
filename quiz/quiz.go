@@ -4,10 +4,12 @@ import (
 	"errors"
 	"fmt"
 	"log"
+	"time"
 )
 
 type Quiz interface {
 	Run(funcname string) error
+	Functions() map[string]interface{}
 }
 
 type quiz struct {
@@ -26,7 +28,15 @@ func (q *quiz) Run(funcname string) error {
 	if !ok {
 		return errors.New(fmt.Sprintf("function: %s not found", funcname))
 	}
+	start := time.Now()
+	defer func() {
+		fmt.Printf("=> function: %s \ttime elapsed: %s\n", funcname, time.Now().Sub(start))
+	}()
 	return f.(func() error)()
+}
+
+func (q *quiz) Functions() map[string]interface{} {
+	return q.funcMap
 }
 
 func New() Quiz {
@@ -34,6 +44,7 @@ func New() Quiz {
 		funcMap: make(map[string]interface{}),
 	}
 	q.MustRegister("test", test)
+	q.MustRegister("findfuncarg", runFindFuncArgument)
 	return &q
 }
 
