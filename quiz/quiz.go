@@ -45,6 +45,7 @@ func New() Quiz {
 	}
 	q.MustRegister("test", test)
 	q.MustRegister("findfuncarg", runFindFuncArgument)
+	q.MustRegister("rotateimg", runRotateImg)
 	return &q
 }
 
