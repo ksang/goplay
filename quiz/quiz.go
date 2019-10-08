@@ -47,6 +47,7 @@ func New() Quiz {
 	q.MustRegister("findfuncarg", runFindFuncArgument)
 	q.MustRegister("rotateimg", runRotateImg)
 	q.MustRegister("editdistance", runEditDistance)
+	q.MustRegister("flattenbintree", runFlattenBinaryTreeToLinkedList)
 	return &q
 }
 
