@@ -48,6 +48,7 @@ func New() Quiz {
 	q.MustRegister("rotateimg", runRotateImg)
 	q.MustRegister("editdistance", runEditDistance)
 	q.MustRegister("flattenbintree", runFlattenBinaryTreeToLinkedList)
+	q.MustRegister("levelorderbintree", runbinTreeLevelOrder)
 	return &q
 }
 
