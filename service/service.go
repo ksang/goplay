@@ -51,6 +51,6 @@ func New() Service {
 		bindaddr:   ":8080",
 	}
 	s.MustRegister("echo", &echo{})
-	s.MustRegister("md5", &md5Service{})
+	s.MustRegister("md5", &md5Service{4})
 	return &s
 }

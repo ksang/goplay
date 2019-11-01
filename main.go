@@ -25,7 +25,7 @@ var (
 func init() {
 	flag.StringVar(&QUIZFUNC, "quiz", "", "run code snippets in quiz e.g.:\"-quiz test\"")
 	flag.StringVar(&ALGOFUNC, "algo", "", "run code snippets in algo e.g.:\"-algo mergesort\"")
-	flag.StringVar(&SERVICE, "service", "", "run code snippets in service e.g.:\"-service fmd5sum\"")
+	flag.StringVar(&SERVICE, "service", "", "run code snippets in service e.g.:\"-service md5\"")
 	flag.BoolVar(&LIST, "list", false, "list all available functions")
 }
 
