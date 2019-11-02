@@ -18,7 +18,7 @@ test:
 	go test -v ${GOPACKAGES}
 
 bench:
-	go test -bench=${GOPACKAGES}
+	go test -bench=. ${GOPACKAGES}
 
 clean:
 	rm -rf build
