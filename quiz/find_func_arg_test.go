@@ -32,3 +32,12 @@ func TestFindFuncArgument(t *testing.T) {
 		t.Logf("binary case: #%d \telapsed time: %s", idx+1, time.Now().Sub(start2))
 	}
 }
+
+func BenchmarkFindFuncArgument(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		FindFuncArgumentNaive(func(x int, y int) int {
+			return x + y
+		},
+			5000)
+	}
+}
